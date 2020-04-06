@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="buttonBlue">#97365E7E</color>
+    <color name="textBlue">#203B50</color>
+    <color name="regBackground">#60345F81</color>
+    <color name="regTextBox">#ADFFFFFF</color>
+</resources>
