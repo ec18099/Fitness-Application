@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register">
+    tools:context=".Register"
+    android:background="@drawable/gradient_colour"
+    >
 
     <FrameLayout
         android:layout_width="345dp"
@@ -18,7 +20,6 @@
         android:textAlignment="center"
         android:gravity="center_horizontal"
         app:layout_constraintVertical_bias="0.3"
-        android:background="@color/regBackground"
         android:paddingTop="5dp"
         >
 
@@ -27,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/register"
-            android:textSize="35sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             android:textAlignment="center"
             android:gravity="center_horizontal"
@@ -44,7 +45,7 @@
             android:inputType="textPersonName"
             android:textStyle="bold"
             android:hint="@string/fname"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="90dp"
             android:layout_marginLeft="25dp"
             android:background="@drawable/curved_edt"/>
 
@@ -57,7 +58,7 @@
             android:inputType="textPersonName"
             android:textStyle="bold"
             android:hint="@string/lname"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="160dp"
             android:layout_marginLeft="25dp"
             android:background="@drawable/curved_edt"
             />
@@ -71,7 +72,7 @@
             android:inputType="textEmailAddress"
             android:textStyle="bold"
             android:hint="@string/email"
-            android:layout_marginTop="240dp"
+            android:layout_marginTop="230dp"
             android:layout_marginLeft="25dp"
             android:background="@drawable/curved_edt"
             />
@@ -85,7 +86,7 @@
             android:inputType="textPassword"
             android:textStyle="bold"
             android:hint="@string/password"
-            android:layout_marginTop="310dp"
+            android:layout_marginTop="300dp"
             android:layout_marginLeft="25dp"
             android:background="@drawable/curved_edt"
             />
@@ -99,7 +100,7 @@
             android:inputType="textPassword"
             android:textStyle="bold"
             android:hint="@string/password2"
-            android:layout_marginTop="380dp"
+            android:layout_marginTop="370dp"
             android:layout_marginLeft="25dp"
             android:background="@drawable/curved_edt"
             />
@@ -110,10 +111,12 @@
             android:layout_height="wrap_content"
             android:text="@string/submit"
             android:textStyle="bold"
-            android:layout_marginTop="470dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/curved_btn"
-            android:textColor="@color/textBlue"
+            android:textSize="17sp"
+            android:layout_marginTop="450dp"
+            android:layout_marginLeft="25dp"
+            android:background="@android:color/transparent"
+            android:alpha="0.4"
+            android:textColor="#FFFFFF"
             />
 
         <Button
@@ -122,10 +125,12 @@
             android:layout_height="wrap_content"
             android:text="@string/clear"
             android:textStyle="bold"
-            android:layout_marginLeft="180dp"
-            android:layout_marginTop="470dp"
-            android:background="@drawable/curved_btn"
-            android:textColor="@color/textBlue"
+            android:textSize="17sp"
+            android:layout_marginLeft="175dp"
+            android:layout_marginTop="450dp"
+            android:background="@android:color/transparent"
+            android:alpha="0.4"
+            android:textColor="#FFFFFF"
             />
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
