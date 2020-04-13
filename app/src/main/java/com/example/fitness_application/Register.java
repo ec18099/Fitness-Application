@@ -1,6 +1,7 @@
 package com.example.fitness_application;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -46,7 +47,7 @@ public class Register extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkValidity(fName,lName,email,password,password2);
+                checkValidity(fName,lName,email,password,password2,true);
             }
         });
     }
@@ -60,43 +61,57 @@ public class Register extends AppCompatActivity {
         updateUI(currentUser);
     }
 
-    // if current uesr is null, then user can access reg page, otherwise redirect.
+    // if current user is null, then user can access reg page, otherwise redirect.
     private void updateUI(FirebaseUser currentUser) {
 
     }
 
-    public void checkValidity(EditText fName, EditText lName, EditText email, EditText password, EditText password2){
+    public void checkValidity(EditText fName, EditText lName, EditText email, EditText password, EditText password2,Boolean isValid){
         String fNameText = fName.getText().toString(); String lNameText = lName.getText().toString();
         String emailText = email.getText().toString(); String passwordText = password.getText().toString();
         String password2Text = password2.getText().toString();
 
         if(fNameText.length() < 1 || fNameText.length() > 15){
             fName.setError("Please input a valid first name");
-            return;
+            isValid = false;
         }
 
         if(lNameText.length() < 1 || lNameText.length() > 30){
             lName.setError("Please input a valid last name");
-            return;
+            isValid = false;
         }
 
         if(!(emailText.contains("@"))|| emailText.length() < 10 || emailText.length() > 40){
             email.setError("Please input a valid email");
-            return;
+            isValid = false;
         }
 
         if(passwordText.length() < 5 || passwordText.length() > 20){
             password.setError("Password must be between 5 to 20 characters long (inclusive)");
-            return;
+            isValid = false;
         }
 
         if(!(password2Text.equals(passwordText))){
             password2.setError("Passwords do not match");
-            return;
+            isValid = false;
         }
+        if(isValid) {
+            storeInDatabase(fNameText, lNameText, emailText, passwordText);
+        }
+        return;
+    }
+    public void showAlertDialogButtonClicked(String title, String message) {
+        // setup the alert builder
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Login Failed");
+        builder.setMessage("Either your email, password, or both are incorrect.");
 
-        storeInDatabase(fNameText, lNameText, emailText, passwordText);
+        // add a button
+        builder.setPositiveButton("OK", null);
 
+        // create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     // Database code TEST
@@ -111,12 +126,14 @@ public class Register extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            showAlertDialogButtonClicked("Success","You have successfully registered! You will now be redirected.");
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
                                     //Toast.LENGTH_SHORT).show();
+                            showAlertDialogButtonClicked("OOPS","Something went wrong with your registration. Please try again.");
                             updateUI(null);
                         }
 
