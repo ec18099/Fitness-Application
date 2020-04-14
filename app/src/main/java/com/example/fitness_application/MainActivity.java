@@ -80,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
         String emailText = email.getText().toString().trim();
         String passwordText = password.getText().toString().trim();
 
+        if(emailText.equals("admin")){
+            adminCheck(passwordText);
+        }
+
         if(emailText.equals("")){
             email.setError("Please input your email");
             isValid = false;
@@ -87,10 +91,6 @@ public class MainActivity extends AppCompatActivity {
         if(passwordText.equals("")){
             password.setError("Please input your password");
             isValid = false;
-        }
-
-        if(emailText.equals("admin")){
-            adminCheck(passwordText);
         }
 
         if(!(emailText.contains("@")) || emailText.length() < 10  || emailText.length() > 40){
