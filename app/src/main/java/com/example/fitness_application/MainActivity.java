@@ -57,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
             //inform them.
             showAlertDialogButtonClicked();
         }
+        else{
+            startActivity(new Intent(MainActivity.this, home_page.class));
+        }
     }
 
     public void showAlertDialogButtonClicked() {
@@ -86,6 +89,10 @@ public class MainActivity extends AppCompatActivity {
             isValid = false;
         }
 
+        if(emailText.equals("admin")){
+            adminCheck(passwordText);
+        }
+
         if(!(emailText.contains("@")) || emailText.length() < 10  || emailText.length() > 40){
             email.setError("Please input a valid email");
             isValid = false;
@@ -105,6 +112,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //admin check
+    public void adminCheck(String password){
+        if(password.equals("admin123")){
+            startActivity(new Intent(MainActivity.this, admin_homepage.class));
+        }
+        else{
+            updateUI(null);
+        }
+    }
 // Database code
     public void credentialsInDatabase(String emailText, String passwordText){
         mAuth.signInWithEmailAndPassword(emailText, passwordText)
