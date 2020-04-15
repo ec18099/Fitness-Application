@@ -27,12 +27,16 @@ public class home_page extends AppCompatActivity {
         final Button logout = findViewById(R.id.logout);
         TextView myTDEE = findViewById(R.id.TDEE);
         String TDEE = "";
+        myTDEE.setText("MY TDEE:" + TDEE);
         final Bundle extras = getIntent().getExtras();
         if(extras != null){
             TDEE = extras.getString("key");
+            myTDEE.setText("MY TDEE:" + TDEE);
         }
         // add TDEE value below.
-        myTDEE.setText("MY TDEE:" + TDEE);
+        if(myTDEE.getText().toString().equals("MY TDEE:")){
+            startActivity(new Intent(home_page.this, inputTDEE.class));
+        }
 
         // testing button, replace with actual page.
         suggested_dietPlan.setOnClickListener(new View.OnClickListener() {

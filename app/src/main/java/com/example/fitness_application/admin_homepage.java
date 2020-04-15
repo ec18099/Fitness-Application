@@ -16,7 +16,6 @@ public class admin_homepage extends AppCompatActivity {
         setContentView(R.layout.activity_admin_homepage);
         final CardView edit_exercises = findViewById(R.id.editExercises);
         final CardView edit_meals = findViewById(R.id.editMeals);
-        final CardView edit_dietPlan = findViewById(R.id.editDietPlans);
         final Button logout = findViewById(R.id.admin_logout);
 
         edit_exercises.setOnClickListener(new View.OnClickListener() {
