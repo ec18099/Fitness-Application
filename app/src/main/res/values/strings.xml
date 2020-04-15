@@ -9,4 +9,12 @@
     <string name="password2">Re-type password</string>
     <string name="clear">Clear</string>
     <string name="submit">Submit</string>
+    <string name="app_name2">ListVIew</string>
+    <string-array name="ActivityLevels">
+        <item>Little/No Exercise</item>
+        <item>light exercise</item>
+        <item>moderate</item>
+        <item>heavy</item>
+        <item>extreme</item>
+    </string-array>
 </resources>

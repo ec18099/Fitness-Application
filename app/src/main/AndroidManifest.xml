@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".admin_homepage"></activity>
+        <activity android:name=".inputTDEE"></activity>
+        <activity android:name=".viewExerciseList" />
+        <activity android:name=".admin_homepage" />
         <activity android:name=".home_page" />
         <activity
             android:name=".Register"

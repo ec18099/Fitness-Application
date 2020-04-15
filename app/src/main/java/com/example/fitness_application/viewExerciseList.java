@@ -1,4 +1,4 @@
-package com.example.listview;
+package com.example.fitness_application;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,15 +11,15 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
-    private SQLiteDatabaseHandler db;
 
+public class viewExerciseList extends AppCompatActivity {
+    private static final String TAG = "viewExerciseList";
+    private SQLiteDatabaseHandler db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_view_exercise_list);
         ListView list = (ListView) findViewById(R.id.EList);
         Log.d(TAG, "onCreate: Started");
         db = new SQLiteDatabaseHandler(this);
@@ -149,13 +149,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
         ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, name);
         list.setAdapter(adapter);
 
 
 
     }
+
 }
