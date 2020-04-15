@@ -28,7 +28,7 @@ import android.database.sqlite.SQLiteOpenHelper;
         public void onCreate(SQLiteDatabase db) {
             String CREATION_TABLE = "CREATE TABLE Exercises ( "
                     + "id INTEGER PRIMARY KEY AUTOINCREMENT, " + "name TEXT, "
-                    + "position TEXT, " + "height INTEGER )";
+                    + "caloriesBurnt TEXT, " + "duration INTEGER )";
 
             db.execSQL(CREATION_TABLE);
         }

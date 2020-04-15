@@ -6,29 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".inputTDEE">
 
-    <EditText
-        android:id="@+id/activityLevelsInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="318dp"
-        android:ems="10"
-        android:hint="activityLevels"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.342"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
 
-    <Spinner
-        android:id="@+id/spinner1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:hint="ACTIVITY LEVELS"
-        tools:layout_editor_absoluteX="-22dp"
-        tools:layout_editor_absoluteY="35dp" />
+
 
     <EditText
         android:id="@+id/weightInput"
@@ -116,6 +95,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/activity"
+        android:layout_width="212dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="388dp"
+        android:hint="ActivityLevels"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.341"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
