@@ -2,6 +2,7 @@ package com.example.fitness_application;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -63,6 +64,10 @@ public class inputTDEE extends AppCompatActivity {
                     p1.setTDEE(p1.getHeight(),p1.getWeight(),p1.getAge(),p1.getSex(),p1.getActivityLevels());
 
                     showToast(String.valueOf(p1.getTDEE()));
+                    Intent intent = new Intent(inputTDEE.this, home_page.class);
+                    intent.putExtra("key",p1.getTDEE());
+                    startActivity(intent);
+
                 }catch (NumberFormatException e)
                 {
                     e.printStackTrace();

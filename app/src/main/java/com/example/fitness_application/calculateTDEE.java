@@ -120,7 +120,7 @@ class calculateTDEE {
     public double getTDEE()
 
     {
-        return TDEE;
+        return Math.round(TDEE);
     }
 
 }

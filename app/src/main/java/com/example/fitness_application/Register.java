@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -58,12 +59,17 @@ public class Register extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
+        updateUI(currentUser,true);
     }
 
     // if current user is null, then user can access reg page, otherwise redirect.
-    private void updateUI(FirebaseUser currentUser) {
-
+    private void updateUI(FirebaseUser currentUser, boolean existingUser) {
+        if(currentUser != null && !(existingUser)){
+            startActivity(new Intent(Register.this, inputTDEE.class));
+        }
+        else if(currentUser != null && existingUser){
+            startActivity(new Intent(Register.this, home_page.class));
+        }
     }
 
     public void checkValidity(EditText fName, EditText lName, EditText email, EditText password, EditText password2,Boolean isValid){
@@ -127,18 +133,19 @@ public class Register extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             showAlertDialogButtonClicked("Success","You have successfully registered! You will now be redirected.");
-                            updateUI(user);
+                            updateUI(user,false);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
                                     //Toast.LENGTH_SHORT).show();
                             showAlertDialogButtonClicked("OOPS","Something went wrong with your registration. Please try again.");
-                            updateUI(null);
+                            updateUI(null,false);
                         }
 
                         // ...
                     }
                 });
     }
+
 }
