@@ -71,24 +71,24 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
 
     public List<ExerciseList> allExercises() {
 
-        List<ExerciseList> players = new LinkedList<ExerciseList>();
+        List<ExerciseList> exerciseList = new LinkedList<ExerciseList>();
         String query = "SELECT  * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
-        ExerciseList player = null;
+        ExerciseList exercise= null;
 
         if (cursor.moveToFirst()) {
             do {
-                player = new ExerciseList();
-                player.setId(Integer.parseInt(cursor.getString(0)));
-                player.setName(cursor.getString(1));
-                player.setCaloriesBurnt(cursor.getString(2));
-                player.setDuration(Integer.parseInt(cursor.getString(3)));
-                players.add(player);
+                exercise = new ExerciseList();
+                exercise.setId(Integer.parseInt(cursor.getString(0)));
+                exercise.setName(cursor.getString(1));
+                exercise.setCaloriesBurnt(cursor.getString(2));
+                exercise.setDuration(Integer.parseInt(cursor.getString(3)));
+                exerciseList.add(exercise);
             } while (cursor.moveToNext());
         }
 
-        return players;
+        return exerciseList;
     }
 
     public void addExercise(ExerciseList exercise) {
@@ -120,6 +120,14 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
     }
 
 }
+
+
+
+
+
+
+
+
 
 
 
