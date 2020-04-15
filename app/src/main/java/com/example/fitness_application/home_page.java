@@ -53,7 +53,7 @@ public class home_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                extras.clear();
+                //extras.clear();
                 startActivity(new Intent(home_page.this, Register.class));
             }
         });
