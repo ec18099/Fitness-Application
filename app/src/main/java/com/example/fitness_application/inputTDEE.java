@@ -68,6 +68,7 @@ public class inputTDEE extends AppCompatActivity implements OnItemSelectedListen
                     showToast(String.valueOf(p1.getTDEE()));
 
                     // takes the TDEE value and stores into a session variable. This variable is sent to the homepage.
+                    // Add TDEE value to database.
                     Intent intent = new Intent(inputTDEE.this, home_page.class);
                     intent.putExtra("key",Double.toString(p1.getTDEE()));
                     startActivity(intent);

@@ -64,7 +64,9 @@ public class home_page extends AppCompatActivity {
         exerciseLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(home_page.this, exercise_log.class));
+                Intent intent = new Intent(home_page.this, exercise_log.class);
+                intent.putExtra("key", getIntent().getExtras());
+                startActivity(intent);
             }
         });
 
