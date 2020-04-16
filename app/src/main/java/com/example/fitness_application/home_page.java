@@ -20,7 +20,7 @@ public class home_page extends AppCompatActivity {
 
         final CardView suggested_dietPlan = findViewById(R.id.dietPlans);
         final CardView consumption_log = findViewById(R.id.consumption);
-        final CardView exercise_log = findViewById(R.id.exercise_log);
+        final CardView exerciseLog = findViewById(R.id.exercise_log);
         final CardView input_weight = findViewById(R.id.weight_change);
         final CardView suggested_meals = findViewById(R.id.suggested_meals);
         final CardView suggested_exercises = findViewById(R.id.suggested_exercises);
@@ -28,15 +28,15 @@ public class home_page extends AppCompatActivity {
         TextView myTDEE = findViewById(R.id.TDEE);
         String TDEE = "";
         myTDEE.setText("MY TDEE:" + TDEE);
-        final Bundle extras = getIntent().getExtras();
+        /*final Bundle extras = getIntent().getExtras();
         if(extras != null){
             TDEE = extras.getString("key");
             myTDEE.setText("MY TDEE:" + TDEE);
         }
         // add TDEE value below.
-        if(myTDEE.getText().toString().equals("MY TDEE:")){
+       if(extras == null){
             startActivity(new Intent(home_page.this, inputTDEE.class));
-        }
+        }*/
 
         // testing button, replace with actual page.
         suggested_dietPlan.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +50,22 @@ public class home_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(home_page.this, viewExerciseList.class));
+            }
+        });
+
+        suggested_meals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(home_page.this, viewMealList.class));
+            }
+        });
+
+        exerciseLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(home_page.this, exercise_log.class);
+                //intent2.putExtra("key",extras.getString("key"));
+                startActivity(intent);
             }
         });
 

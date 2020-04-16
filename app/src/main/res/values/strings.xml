@@ -18,4 +18,20 @@
         <item>heavy</item>
         <item>extreme</item>
     </string-array>
+    <string-array name="ExerciseNames">
+        <item>Pushups</item>
+        <item>Calf Raises</item>
+        <item>Lunges</item>
+        <item>Crunches</item>
+        <item>Planks</item>
+        <item>Pullups</item>
+        <item>Wallsits</item>
+        <item>Squats</item>
+        <item>Burpees</item>
+        <item>High Knees</item>
+        <item>Tricep Dips</item>
+        <item>Wallsit</item>
+        <item>Skaters</item>
+        <item>Cardio</item>
+    </string-array>
 </resources>

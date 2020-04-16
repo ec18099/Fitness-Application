@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".inputTDEE"></activity>
+        <activity android:name=".exercise_log"></activity>
+        <activity android:name=".inputTDEE" />
         <activity android:name=".viewExerciseList" />
         <activity android:name=".admin_homepage" />
         <activity android:name=".home_page" />
+        <activity android:name=".viewMealList"/>
         <activity
             android:name=".Register"
             android:label="@string/app_name" />

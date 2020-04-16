@@ -64,10 +64,7 @@ public class Register extends AppCompatActivity {
 
     // if current user is null, then user can access reg page, otherwise redirect.
     private void updateUI(FirebaseUser currentUser, boolean existingUser) {
-        if(currentUser != null && !(existingUser)){
-            startActivity(new Intent(Register.this, inputTDEE.class));
-        }
-        else if(currentUser != null && existingUser){
+        if(currentUser != null){
             startActivity(new Intent(Register.this, home_page.class));
         }
     }
