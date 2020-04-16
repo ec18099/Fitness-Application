@@ -32,12 +32,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
             db.execSQL(CREATION_TABLE);
 
-            CREATION_TABLE = "CREATE TABLE TDEE ( "
-                    + "id INTEGER PRIMARY KEY AUTOINCREMENT, " + "Height INTEGER, "
-                    + "Weight INTEGER, " + "Age INTEGER," + "Sex CHAR(1)," + "tdee_value DOUBLE)";
-
-            db.execSQL(CREATION_TABLE);
-
         }
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

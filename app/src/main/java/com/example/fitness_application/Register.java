@@ -64,8 +64,12 @@ public class Register extends AppCompatActivity {
 
     // if current user is null, then user can access reg page, otherwise redirect.
     private void updateUI(FirebaseUser currentUser, boolean existingUser) {
-        if(currentUser != null){
+
+        if(currentUser != null && existingUser){
             startActivity(new Intent(Register.this, home_page.class));
+        }
+        else if(currentUser != null && !(existingUser)){
+            startActivity(new Intent(Register.this,inputTDEE.class));
         }
     }
 
@@ -106,8 +110,8 @@ public class Register extends AppCompatActivity {
     public void showAlertDialogButtonClicked(String title, String message) {
         // setup the alert builder
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Login Failed");
-        builder.setMessage("Either your email, password, or both are incorrect.");
+        builder.setTitle(title);
+        builder.setMessage(message);
 
         // add a button
         builder.setPositiveButton("OK", null);

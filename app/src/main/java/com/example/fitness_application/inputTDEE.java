@@ -4,9 +4,11 @@ package com.example.fitness_application;
 
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -19,8 +21,13 @@ import android.widget.Toast;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 
-public class inputTDEE extends AppCompatActivity implements OnItemSelectedListener {
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+public class inputTDEE extends AppCompatActivity implements OnItemSelectedListener {
 
     private EditText heightInput;
     private EditText weightInput;
@@ -31,6 +38,8 @@ public class inputTDEE extends AppCompatActivity implements OnItemSelectedListen
 
     Button calcTDEE;
     Spinner spinner;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference();
 
 
     @Override
@@ -69,8 +78,9 @@ public class inputTDEE extends AppCompatActivity implements OnItemSelectedListen
 
                     // takes the TDEE value and stores into a session variable. This variable is sent to the homepage.
                     // Add TDEE value to database.
+
                     Intent intent = new Intent(inputTDEE.this, home_page.class);
-                    intent.putExtra("key",Double.toString(p1.getTDEE()));
+                    //intent.putExtra("key",Double.toString(p1.getTDEE()));
                     startActivity(intent);
 
                 }catch (NumberFormatException e)
@@ -83,6 +93,8 @@ public class inputTDEE extends AppCompatActivity implements OnItemSelectedListen
         });
 
     }
+
+    // Read from the database
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         activityL = parent.getItemAtPosition(position).toString();
@@ -98,6 +110,7 @@ public class inputTDEE extends AppCompatActivity implements OnItemSelectedListen
         Toast.makeText(inputTDEE.this, text, Toast.LENGTH_SHORT).show();
 
     }
+
 }
 
 
