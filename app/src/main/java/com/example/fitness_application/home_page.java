@@ -38,6 +38,7 @@ public class home_page extends AppCompatActivity {
             startActivity(new Intent(home_page.this, inputTDEE.class));
         }
 
+
         // testing button, replace with actual page.
         suggested_dietPlan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,7 +64,7 @@ public class home_page extends AppCompatActivity {
         exerciseLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(home_page.this, exercise_log.class));
             }
         });
 
