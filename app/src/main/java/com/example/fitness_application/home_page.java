@@ -28,15 +28,15 @@ public class home_page extends AppCompatActivity {
         TextView myTDEE = findViewById(R.id.TDEE);
         String TDEE = "";
         myTDEE.setText("MY TDEE:" + TDEE);
-        /*final Bundle extras = getIntent().getExtras();
+        final Bundle extras = getIntent().getExtras();
         if(extras != null){
             TDEE = extras.getString("key");
             myTDEE.setText("MY TDEE:" + TDEE);
         }
         // add TDEE value below.
-       if(extras == null){
+        if(myTDEE.getText().toString().equals("MY TDEE:")){
             startActivity(new Intent(home_page.this, inputTDEE.class));
-        }*/
+        }
 
         // testing button, replace with actual page.
         suggested_dietPlan.setOnClickListener(new View.OnClickListener() {
@@ -63,9 +63,7 @@ public class home_page extends AppCompatActivity {
         exerciseLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(home_page.this, exercise_log.class);
-                //intent2.putExtra("key",extras.getString("key"));
-                startActivity(intent);
+
             }
         });
 
