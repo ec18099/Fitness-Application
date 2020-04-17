@@ -38,8 +38,8 @@ public class inputTDEE extends AppCompatActivity implements OnItemSelectedListen
 
     Button calcTDEE;
     Spinner spinner;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference();
+   // FirebaseDatabase database = FirebaseDatabase.getInstance();
+    //DatabaseReference myRef = database.getReference("TDEE");
 
 
     @Override
@@ -79,6 +79,7 @@ public class inputTDEE extends AppCompatActivity implements OnItemSelectedListen
                     // takes the TDEE value and stores into a session variable. This variable is sent to the homepage.
                     // Add TDEE value to database.
 
+                    //myRef.setValue("hello");
                     Intent intent = new Intent(inputTDEE.this, home_page.class);
                     //intent.putExtra("key",Double.toString(p1.getTDEE()));
                     startActivity(intent);
