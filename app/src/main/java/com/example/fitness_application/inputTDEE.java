@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -21,11 +22,6 @@ import android.widget.Toast;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class inputTDEE extends AppCompatActivity implements OnItemSelectedListener {
 
@@ -38,9 +34,6 @@ public class inputTDEE extends AppCompatActivity implements OnItemSelectedListen
 
     Button calcTDEE;
     Spinner spinner;
-   // FirebaseDatabase database = FirebaseDatabase.getInstance();
-    //DatabaseReference myRef = database.getReference("TDEE");
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +72,8 @@ public class inputTDEE extends AppCompatActivity implements OnItemSelectedListen
                     // takes the TDEE value and stores into a session variable. This variable is sent to the homepage.
                     // Add TDEE value to database.
 
-                    //myRef.setValue("hello");
                     Intent intent = new Intent(inputTDEE.this, home_page.class);
-                    //intent.putExtra("key",Double.toString(p1.getTDEE()));
+                    intent.putExtra("key",Double.toString(p1.getTDEE()));
                     startActivity(intent);
 
                 }catch (NumberFormatException e)

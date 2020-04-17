@@ -13,20 +13,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class home_page extends AppCompatActivity {
-    DatabaseReference nRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference TDEEref = nRootRef.child("TDEE");
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,20 +33,11 @@ public class home_page extends AppCompatActivity {
         String TDEE = "";
         myTDEE.setText("MY TDEE:" + TDEE);
 
-
-
-
-        //myTDEE.setText("MY TDEE: " + TDEE);
-        //final Bundle extras = getIntent().getExtras();
-        /*if(extras != null){
+        final Bundle extras = getIntent().getExtras();
+        if(extras != null){
             TDEE = extras.getString("key");
             myTDEE.setText("MY TDEE:" + TDEE);
         }
-        // add TDEE value below.
-        if(myTDEE.getText().toString().equals("MY TDEE:")){
-            startActivity(new Intent(home_page.this, inputTDEE.class));
-        }
-        */
 
         // testing button, replace with actual page.
         suggested_dietPlan.setOnClickListener(new View.OnClickListener() {
