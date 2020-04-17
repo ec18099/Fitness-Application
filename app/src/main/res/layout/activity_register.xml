@@ -133,4 +133,20 @@
             android:textColor="#FFFFFF"
             />
     </FrameLayout>
+
+    <Button
+        android:id="@+id/loginText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:alpha="0.4"
+        android:text="Login"
+        android:textSize="20sp"
+        android:background="@color/App_background"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

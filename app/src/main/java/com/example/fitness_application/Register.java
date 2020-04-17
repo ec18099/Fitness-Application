@@ -26,6 +26,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         final Button clear = findViewById(R.id.clear);
         final Button submit = findViewById(R.id.submit);
+        final Button login = findViewById(R.id.loginText);
         final EditText fName = findViewById((R.id.fname));
         final EditText lName = findViewById(R.id.lname);
         final EditText email = findViewById(R.id.emailreg);
@@ -49,6 +50,13 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkValidity(fName,lName,email,password,password2,true);
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Register.this, MainActivity.class));
             }
         });
     }
@@ -140,7 +148,7 @@ public class Register extends AppCompatActivity {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
                                     //Toast.LENGTH_SHORT).show();
-                            showAlertDialogButtonClicked("OOPS","Something went wrong with your registration. Please try again.");
+                            showAlertDialogButtonClicked("OOPS","Something went wrong with your registration (a connection error or the email is already in use). Please try again.");
                             updateUI(null,false);
                         }
 

@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-
+    private Boolean isValid = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validateCredentials(email,password,true);
+                validateCredentials(email,password);
             }
         });
     }
@@ -53,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser currentUser) {
-        if(currentUser == null){
+        if(currentUser == null && !(isValid)){
             //inform them.
             showAlertDialogButtonClicked();
         }
-        else{
+        else if(currentUser != null && (isValid)){
             startActivity(new Intent(MainActivity.this, home_page.class));
         }
     }
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
-    public void validateCredentials(EditText email,EditText password, Boolean isValid){
+    public void validateCredentials(EditText email,EditText password){
         String emailText = email.getText().toString().trim();
         String passwordText = password.getText().toString().trim();
 

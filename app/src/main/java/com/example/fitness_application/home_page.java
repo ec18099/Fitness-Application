@@ -38,6 +38,10 @@ public class home_page extends AppCompatActivity {
             TDEE = extras.getString("key");
             myTDEE.setText("MY TDEE:" + TDEE);
         }
+        else if(extras == null){
+            startActivity(new Intent(home_page.this, inputTDEE.class
+            ));
+        }
 
         // testing button, replace with actual page.
         suggested_dietPlan.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +69,6 @@ public class home_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(home_page.this, exercise_log.class);
-                intent.putExtra("key", getIntent().getExtras());
                 startActivity(intent);
             }
         });
@@ -75,7 +78,7 @@ public class home_page extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 //extras.clear();
-                startActivity(new Intent(home_page.this, Register.class));
+                startActivity(new Intent(home_page.this, MainActivity.class));
             }
         });
 
